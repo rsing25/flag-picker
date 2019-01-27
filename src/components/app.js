@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import BookList from "../containers/book-list";
-import BookDetail from "../containers/book-detail";
 import AutoSuggest from "./autosuggest";
+import connect from "react-redux";
+import { getCountryData } from "../actions/index";
 
 const styles = {
 	fontFamily: "sans-serif",
@@ -10,13 +10,17 @@ const styles = {
 };
 
 export default class App extends Component {
-render() {
-	return (
-		<div style={styles}>
-			<AutoSuggest  type= "checkbox"/>
-			<BookList />
-			<BookDetail />
-		</div>
-	);
+
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}	
+	render() {
+		return (
+			<div style={styles}>
+				<AutoSuggest  type= "checkbox"/>
+			</div>
+		);
+	}
 }
-}
+
