@@ -13,15 +13,28 @@ export default class Autosuggest extends Component {
     onInputChange(e) {
         this.setState({autoIn: e.target.value});
     }
+
+    onListItemChange(arrVal) {
+        this.setState({autoIn : arrVal});
+    }
     
     renderList() {
         const autoIn = this.state.autoIn;
+        if(autoIn === null || autoIn === "" || this.state.testArr.indexOf(autoIn) != -1 ) {
+            return (<div></div>);
+        }
+        return (<div className = "autocomplete-items"> {this.returnMenuItem()}</div>);
+    }
+
+    returnMenuItem() {
+        const autoIn = this.state.autoIn;
+
         const filterdArr = this.state.testArr.filter( (arrVal, index) => {
             return arrVal.substr(0,  autoIn.length).toUpperCase() == autoIn.toUpperCase();
         });
 
         return filterdArr.map( (arrVal, index) => {
-            return (<div key= {index}>{arrVal}</div>);
+            return (<div key= {index} onClick = {this.onListItemChange.bind(this,arrVal)}>{arrVal}</div>);
         });
     }
     
@@ -29,7 +42,7 @@ export default class Autosuggest extends Component {
         return(
         <div className="list-groupb col-sm-4" >
             <input type="text"  onChange = {this.onInputChange.bind(this)} value = {this.state.autoIn}/>
-            <div className = "autocomplete-items">
+            <div >
                 {this.renderList()}
             </div>
         </div>
