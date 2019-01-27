@@ -33,9 +33,15 @@ export default class Autosuggest extends Component {
             return arrVal.substr(0,  autoIn.length).toUpperCase() == autoIn.toUpperCase();
         });
 
-        return filterdArr.map( (arrVal, index) => {
-            return (<div key= {index} onClick = {this.onListItemChange.bind(this,arrVal)}>{arrVal}</div>);
-        });
+            return filterdArr.map( (arrVal, index) => {
+                if(this.props.type == "checkbox") {
+                    return (<div  key= {index} className="autocompleteCheckbox" ><input  type= "checkbox" ></input>{arrVal}</div>);
+                } else {
+                    return (<div key= {index} onClick = {this.onListItemChange.bind(this,arrVal)}>{arrVal}</div>);
+                }
+            });
+        
+        
     }
     
     render() {

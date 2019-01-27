@@ -13,7 +13,7 @@ export default class App extends Component {
 render() {
 	return (
 		<div style={styles}>
-			<AutoSuggest />
+			<AutoSuggest  type= "checkbox"/>
 			<BookList />
 			<BookDetail />
 		</div>

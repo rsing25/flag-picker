@@ -58,3 +58,12 @@
     background-color: DodgerBlue !important; 
     color: #ffffff; 
   }
+
+  .autocompleteCheckbox {
+    text-align: left;
+  }
+
+  .autocompleteCheckbox input[type=checkbox] {
+    margin: 10px;
+  }
+  
