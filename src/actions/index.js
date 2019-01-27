@@ -1,18 +1,16 @@
 
-export const selectBook = book => {
-	console.log("A book is selected" + book.title);
+export const selectContinent = continent => {
+	console.log("A continent is selected" + continent);
 	return {
-		type: "BOOK_SELECTED",
-		payload: book
+		type: "CONTINENT_SELECTED",
+		payload: continent
 	};
 };
 
-// export const getCountryData = () => {
-// 	const data = JOSN.parse(continents);
-// 	console.log(data);
-// 	return {
-// 		type: "GET_COUNTRY_DTAT",
-// 		payload: data
-// 	};
-// };
-
+export const selectConuntry = country => {
+	console.log("A country is selected" + country);
+	return {
+		type: "COUNTRY_SELECTED",
+		payload: country
+	};
+};

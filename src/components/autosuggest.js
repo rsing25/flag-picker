@@ -5,7 +5,6 @@ export default class Autosuggest extends Component {
     constructor(props) {
         super(props);
         this.state = {};    
-        this.state.testArr  = ["Albania","Algeria","Andorra","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
         this.state.autoIn = "";
 
     }
@@ -20,7 +19,7 @@ export default class Autosuggest extends Component {
     
     renderList() {
         const autoIn = this.state.autoIn;
-        if(autoIn === null || autoIn === "" || this.state.testArr.indexOf(autoIn) != -1 ) {
+        if(autoIn === null || autoIn === "" || this.props.data.indexOf(autoIn) != -1 ) {
             return (<div></div>);
         }
         return (<div className = "autocomplete-items"> {this.returnMenuItem()}</div>);
@@ -29,7 +28,7 @@ export default class Autosuggest extends Component {
     returnMenuItem() {
         const autoIn = this.state.autoIn;
 
-        const filterdArr = this.state.testArr.filter( (arrVal, index) => {
+        const filterdArr = this.props.data.filter( (arrVal, index) => {
             return arrVal.substr(0,  autoIn.length).toUpperCase() == autoIn.toUpperCase();
         });
 

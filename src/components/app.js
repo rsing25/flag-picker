@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AutoSuggest from "./autosuggest";
-import connect from "react-redux";
-import { getCountryData } from "../actions/index";
+import  ContinentList  from "../containers/continent-list"
 
 const styles = {
 	fontFamily: "sans-serif",
@@ -18,7 +17,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div style={styles}>
-				<AutoSuggest  type= "checkbox"/>
+				<ContinentList />
 			</div>
 		);
 	}

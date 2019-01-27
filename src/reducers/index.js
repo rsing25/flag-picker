@@ -4,9 +4,9 @@ import ActiveContinentReducer from "./reducer_active_continent";
 import CountriesReducer from "./reducer_conuntries";
 
 const rootReducer = combineReducers({
-    Continents: ContinentsReducer,
+    continents: ContinentsReducer,
     activeContinent: ActiveContinentReducer,
-    Countries: CountriesReducer
+    countries: CountriesReducer
 });
 
 export default rootReducer;
