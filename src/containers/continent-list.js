@@ -16,12 +16,28 @@ class ContinentList extends Component {
         const data = this.props.continents.map( (arrVal, index) => {
             return arrVal.continent
         });
-
         return (
-        <div><AutoSuggest type="normal" data= {data} onChange = {this.onChangeContinent.bind(this)}/></div>
+            <div>
+                <div><AutoSuggest type="normal" data= {data} onChange = {this.onChangeContinent.bind(this)}/></div>
+                <div>
+                    {this.renderSelectedContinent()}
+                </div>
+            </div>
         );
     }
 
+    renderSelectedContinent() {
+        if(!this.props.activeContinent.continent  || this.props.activeContinent == null) {
+            return null;
+        } else {
+            return (
+                <div>
+                    <div>You selected</div>
+                    <div>{this.props.activeContinent.continent}</div>
+                </div>
+            )
+        }
+    }
     onChangeContinent(continent)  {
         console.log("onChangeContinent"+continent);
         this.props.onSelectContinent({continent:continent});
@@ -40,9 +56,9 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-    onSelectContinent: options => {
-         dispatch(selectContinent(options));
-    }
+        onSelectContinent: options => {
+            dispatch(selectContinent(options));
+        }
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ContinentList);

@@ -24,7 +24,7 @@ class ContinentList extends Component {
             return country.name;
         });
         return (
-        <div><AutoSuggest type="normal" data= {dataIn} onChange = {this.onChangeConuntry.bind(this)}/></div>
+        <div><AutoSuggest type="checkbox" data= {dataIn} onChange = {this.onChangeConuntry.bind(this)}/></div>
         );
     }
 

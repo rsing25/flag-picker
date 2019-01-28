@@ -11,11 +11,19 @@ export default class Autosuggest extends Component {
 
     onInputChange(e) {
         this.setState({autoIn: e.target.value});
+        if(this.props.data.indexOf(e.target.value) !== -1) {
+            this.setState({autoIn: ""});
+            this.props.onChange(e.target.value);
+        }
+
     }
 
     onListItemChange(arrVal) {
-        this.setState({autoIn : arrVal});
-        this.props.onChange(arrVal);
+        this.setState({autoIn: arrVal});
+        if(this.props.data.indexOf(arrVal) !== -1) {
+            this.setState({autoIn: ""});
+            this.props.onChange(arrVal);
+        }
     }
     
     renderList() {
@@ -48,7 +56,7 @@ export default class Autosuggest extends Component {
         return(
         <div className="list-groupb col-sm-4" >
             <input type="text"  onChange = {this.onInputChange.bind(this)} value = {this.state.autoIn}/>
-            <div >
+            <div>
                 {this.renderList()}
             </div>
         </div>
