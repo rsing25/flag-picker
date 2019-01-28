@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AutoSuggest from "./autosuggest";
-import  ContinentList  from "../containers/continent-list"
+import  ContinentList  from "../containers/continent-list";
+import CountryList from "../containers/country-list";
 
 const styles = {
 	fontFamily: "sans-serif",
@@ -18,6 +19,7 @@ export default class App extends Component {
 		return (
 			<div style={styles}>
 				<ContinentList />
+				<CountryList />
 			</div>
 		);
 	}

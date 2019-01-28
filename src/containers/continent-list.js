@@ -7,6 +7,11 @@ import AutoSuggest from "../components/autosuggest";
 
 class ContinentList extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     render() {
         const data = this.props.continents.map( (arrVal, index) => {
             return arrVal.continent
@@ -26,7 +31,7 @@ class ContinentList extends Component {
 
 
 export const mapStateToProps = state => {
-    console.log("mapStateToProps"+ JSON.stringify(state.activeContinent));
+    console.log("mapStateToProps"+ JSON.stringify(state));
     return {
         continents: state.continents,
         activeContinent: state.activeContinent
