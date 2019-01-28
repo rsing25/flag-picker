@@ -8,7 +8,7 @@ export default class Autosuggest extends Component {
 
     }
 
-    onInputChange(e) {
+    onAutoInputUpdate(e) {
         this.setState({autoIn: e.target.value, showMenu: true});
         if(this.props.data.indexOf(e.target.value) !== -1) {
             this.setState({autoIn: "", showMenu: false});
@@ -17,7 +17,11 @@ export default class Autosuggest extends Component {
 
     }
 
-    onListItemChange(arrVal) {
+    onBlurUpdate(e) {
+        this.setState({ showMenu: false});
+    }
+
+    onListItemUpdate(arrVal) {
         this.setState({autoIn: arrVal, showMenu: true});
         if(this.props.data.indexOf(arrVal) !== -1) {
             this.setState({autoIn: "", showMenu: false});
@@ -28,11 +32,13 @@ export default class Autosuggest extends Component {
     renderList() {
         const autoIn = this.state.autoIn;
         const showMenu = this.state.showMenu;
-        if( !showMenu && (autoIn === null || autoIn === "" || this.props.data.indexOf(autoIn) != -1) ) {
+        //if( !showMenu && (autoIn === null || autoIn === "" || this.props.data.indexOf(autoIn) != -1) ) {
+        if(!showMenu) {
             return (<div></div>);
         }
         return (<div className = "autocomplete-items"> {this.returnMenuItem()}</div>);
     }
+    
 
     returnMenuItem() {
         const autoIn = this.state.autoIn;
@@ -43,9 +49,10 @@ export default class Autosuggest extends Component {
 
             return filterdArr.map( (arrVal, index) => {
                 if(this.props.type == "checkbox") {
-                    return (<div  key= {index} className="autocompleteCheckbox" ><input  type= "checkbox" onClick = {this.onListItemChange.bind(this,arrVal)}></input>{arrVal}</div>);
+                    return (<div  key= {index} className="autocompleteCheckbox" >
+                    <input  type= "checkbox" onClick = {this.onListItemUpdate.bind(this,arrVal)}  ></input>{arrVal}</div>);
                 } else {
-                    return (<div key= {index} onClick = {this.onListItemChange.bind(this,arrVal)}>{arrVal}</div>);
+                    return (<div key= {index} onClick = {this.onListItemUpdate.bind(this,arrVal)}  >{arrVal}</div>);
                 }
             });
         
@@ -55,7 +62,11 @@ export default class Autosuggest extends Component {
     render() {
         return(
         <div className="list-groupb col-sm-4" >
-            <input type="text"  onChange = {this.onInputChange.bind(this)} value = {this.state.autoIn}/>
+            <input type="text"  
+                    onChange = {this.onAutoInputUpdate.bind(this)} 
+                    onFocus = {this.onAutoInputUpdate.bind(this)} 
+                    onBlur = {this.onBlurUpdate.bind(this)} 
+                    value = {this.state.autoIn}/>
             <div>
                 {this.renderList()}
             </div>
