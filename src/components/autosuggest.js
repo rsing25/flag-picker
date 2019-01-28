@@ -4,31 +4,31 @@ export default class Autosuggest extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};    
-        this.state.autoIn = "";
+        this.state = {autoIn:"", showMenu:false};    
 
     }
 
     onInputChange(e) {
-        this.setState({autoIn: e.target.value});
+        this.setState({autoIn: e.target.value, showMenu: true});
         if(this.props.data.indexOf(e.target.value) !== -1) {
-            this.setState({autoIn: ""});
+            this.setState({autoIn: "", showMenu: false});
             this.props.onChange(e.target.value);
         }
 
     }
 
     onListItemChange(arrVal) {
-        this.setState({autoIn: arrVal});
+        this.setState({autoIn: arrVal, showMenu: true});
         if(this.props.data.indexOf(arrVal) !== -1) {
-            this.setState({autoIn: ""});
+            this.setState({autoIn: "", showMenu: false});
             this.props.onChange(arrVal);
         }
     }
     
     renderList() {
         const autoIn = this.state.autoIn;
-        if(autoIn === null || autoIn === "" || this.props.data.indexOf(autoIn) != -1 ) {
+        const showMenu = this.state.showMenu;
+        if( !showMenu && (autoIn === null || autoIn === "" || this.props.data.indexOf(autoIn) != -1) ) {
             return (<div></div>);
         }
         return (<div className = "autocomplete-items"> {this.returnMenuItem()}</div>);
