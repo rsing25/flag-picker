@@ -15,6 +15,7 @@ export default class Autosuggest extends Component {
 
     onListItemChange(arrVal) {
         this.setState({autoIn : arrVal});
+        this.props.onChange(arrVal);
     }
     
     renderList() {

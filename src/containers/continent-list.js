@@ -7,19 +7,26 @@ import AutoSuggest from "../components/autosuggest";
 
 class ContinentList extends Component {
 
-render() {
-    const data = this.props.continents.map( (arrVal, index) => {
-        return arrVal.continent
-    });
+    render() {
+        const data = this.props.continents.map( (arrVal, index) => {
+            return arrVal.continent
+        });
 
-    return (
-    <div><AutoSuggest type="normal" data= {data}/></div>
-    );
+        return (
+        <div><AutoSuggest type="normal" data= {data} onChange = {this.onChangeContinent.bind(this)}/></div>
+        );
+    }
+
+    onChangeContinent(continent)  {
+        console.log("onChangeContinent"+continent);
+        this.props.onSelectContinent({continent:continent});
+    }
 }
-}
+
+
 
 export const mapStateToProps = state => {
-    console.log(JSON.stringify(state.activeContinent));
+    console.log("mapStateToProps"+ JSON.stringify(state.activeContinent));
     return {
         continents: state.continents,
         activeContinent: state.activeContinent
@@ -28,7 +35,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-    selectContinent: options => {
+    onSelectContinent: options => {
          dispatch(selectContinent(options));
     }
     };
