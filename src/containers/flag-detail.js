@@ -14,6 +14,9 @@ class FlagDetail extends Component {
         if(!this.props.activeContinent.continent  || this.props.activeContinent == null) {
             return null;
         }
+        if(this.props.countries.length  === 0) {
+            return null;
+        }
         const data = this.props.continents.filter( (arrVal, index) => {
             return this.props.activeContinent.continent === arrVal.continent;
         });
@@ -33,7 +36,7 @@ class FlagDetail extends Component {
                         {this.renderFlags(flagIn)}
                 </div>
                 <div><input type="button"  
-                    onClick = {this.onClearConuntryClick.bind(this)}></input>
+                    onClick = {this.onClearConuntryClick.bind(this)} value="Clear Flags"/>
                 </div>
             </div>
         )
