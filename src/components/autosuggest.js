@@ -76,7 +76,7 @@ export default class Autosuggest extends Component {
     
     render() {
         return(
-        <div className="list-groupb col-sm-4">
+        <div>
             <input type="text"  
                     onChange = {this.onAutoInputUpdate.bind(this)} 
                     onFocus = {this.onAutoInputUpdate.bind(this)} 

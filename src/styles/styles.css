@@ -67,3 +67,19 @@
     margin: 10px;
   }
   
+  .flex-container {
+    font-family: sans-serif;
+    text-align : center;
+    margin: 0 auto;
+    background-color: "#87CEFA";
+    display: flex;
+    flex-direction: row;
+  }
+  
+
+  .flex-container > div {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid red;
+    width: 30%;
+  }
