@@ -12,8 +12,8 @@ export default class App extends Component {
 	}	
 	render() {
 		return (
-			<div>
-				<h1>Flag Picker</h1>
+			<div className="base-container">
+				<h1 className="pageheading">Flag Picker</h1>
 				<h2>This app will help you to learn flags around the world in 3 steps</h2>
 				<div className="flex-container">
 					<ContinentList />
