@@ -62,13 +62,13 @@
   .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    background-color: #fff; 
+    background-color: #ffffff; 
     border-bottom: 1px solid #d4d4d4; 
   }
   
   /*when hovering an item:*/
   .autocomplete-items div:hover {
-    background-color: #e9e9e9; 
+    background-color: #00BFFF; 
   }
   
   /*when navigating through the items using the arrow keys:*/

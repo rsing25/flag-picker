@@ -14,7 +14,7 @@ export default class App extends Component {
 		return (
 			<div className="base-container">
 				<h1 className="pageheading">Flag Picker</h1>
-				<h2>This app will help you to learn flags around the world in 3 steps</h2>
+				<p>This app will help you to learn flags around the world in <u>3 steps</u></p>
 				<div className="flex-container">
 					<ContinentList />
 					<CountryList />
