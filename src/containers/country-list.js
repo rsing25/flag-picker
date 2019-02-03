@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { selectConuntry } from "../actions/index";
 import AutoSuggest from "../components/autosuggest";
 
-
-
 class ContinentList extends Component {
 
     constructor(props) {
@@ -34,8 +32,6 @@ class ContinentList extends Component {
     }
 }
 
-
-
 export const mapStateToProps = state => {
     console.log("mapStateToProps -"+ JSON.stringify(state));
     return {
@@ -52,4 +48,5 @@ export const mapDispatchToProps = dispatch => {
         }
     };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(ContinentList);

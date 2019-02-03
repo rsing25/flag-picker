@@ -13,8 +13,7 @@ class FlagDetail extends Component {
     render() {
         if(!this.props.countries  || this.props.countries == null) {
             return null;
-        }
-        
+        }        
         return(
             <div>
                 <ul>
