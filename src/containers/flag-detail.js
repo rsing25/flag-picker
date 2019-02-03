@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectConuntry } from "../actions/index";
+import { clearConuntry } from "../actions/index";
 import AutoSuggest from "../components/autosuggest";
 
 class FlagDetail extends Component {
@@ -14,7 +14,6 @@ class FlagDetail extends Component {
         if(!this.props.activeContinent.continent  || this.props.activeContinent == null) {
             return null;
         }
-        debugger;
         const data = this.props.continents.filter( (arrVal, index) => {
             return this.props.activeContinent.continent === arrVal.continent;
         });
@@ -36,6 +35,9 @@ class FlagDetail extends Component {
                         {this.renderFlags(flagIn)}
                     </ul>
                 </div>
+                <div><input type="button"  
+                    onClick = {this.onClearConuntryClick.bind(this)}></input>
+                </div>
             </div>
         )
     }
@@ -46,9 +48,8 @@ class FlagDetail extends Component {
         });
     }
 
-    onChangeConuntry(conuntry)  {
-        console.log("onChangeConuntry"+conuntry);
-        this.props.onSelectConuntry({conuntry:conuntry});
+    onClearConuntryClick()  {
+            this.props.onClearConuntry({});
     }
 }
 
@@ -63,8 +64,8 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-    onSelectConuntry: options => {
-         dispatch(selectConuntry(options));
+    onClearConuntry: options => {
+        dispatch(clearConuntry(options));
     }
     };
 };
