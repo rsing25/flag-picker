@@ -6,6 +6,10 @@ export default function(state = [], action) {
         case "COUNTRY_SELECTED": {
             return state.concat([action.payload]);
         }
+        case "CLEAR_COUNTRY_SELECTED": {
+            state = [];
+            return state;
+        }
     }
     return state;
 }

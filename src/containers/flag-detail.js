@@ -36,8 +36,6 @@ class FlagDetail extends Component {
     }
 }
 
-
-
 export const mapStateToProps = state => {
     console.log("mapStateToProps -"+ JSON.stringify(state));
     return {

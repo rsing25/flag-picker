@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectContinent } from "../actions/index";
+import { selectContinent, clearConuntry } from "../actions/index";
 import AutoSuggest from "../components/autosuggest";
 
 
@@ -40,7 +40,9 @@ class ContinentList extends Component {
     }
     onChangeContinent(continent)  {
         console.log("onChangeContinent"+continent);
+        this.props.onClearConuntry({});
         this.props.onSelectContinent({continent:continent});
+        
     }
 }
 
@@ -58,6 +60,9 @@ export const mapDispatchToProps = dispatch => {
     return {
         onSelectContinent: options => {
             dispatch(selectContinent(options));
+        },
+        onClearConuntry: options => {
+            dispatch(clearConuntry(options));
         }
     };
 };

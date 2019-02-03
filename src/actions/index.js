@@ -14,3 +14,10 @@ export const selectConuntry = country => {
 		payload: country
 	};
 };
+
+export const clearConuntry = () => {
+	return {
+		type: "CLEAR_COUNTRY_SELECTED",
+		payload: {}
+	};
+};

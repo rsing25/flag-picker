@@ -47,9 +47,9 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-    onSelectConuntry: options => {
-         dispatch(selectConuntry(options));
-    }
+        onSelectConuntry: options => {
+            dispatch(selectConuntry(options));
+        }
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ContinentList);
