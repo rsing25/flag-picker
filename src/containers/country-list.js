@@ -25,7 +25,11 @@ class ContinentList extends Component {
             <div>
                 <div className="text-1">Step 2</div>
                 <div className="text-2">Now, Select a country</div>
-                <div><AutoSuggest type="checkbox" data= {dataIn} onChange = {this.onChangeConuntry.bind(this)}/></div>
+                <div><AutoSuggest 
+                        type="checkbox" 
+                        data= {dataIn} 
+                        checkeddata = {this.props.countries} 
+                        onChange = {this.onChangeConuntry.bind(this)}/></div>
             </div>
         );
     }
