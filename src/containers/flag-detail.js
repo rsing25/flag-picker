@@ -29,11 +29,8 @@ class FlagDetail extends Component {
         return(
             <div>
                 <div className="text-1">Selected flags:</div>
-                <div className="text-2">flags</div>
-                <div>
-                    <ul>
+                <div className="text-2">
                         {this.renderFlags(flagIn)}
-                    </ul>
                 </div>
                 <div><input type="button"  
                     onClick = {this.onClearConuntryClick.bind(this)}></input>
