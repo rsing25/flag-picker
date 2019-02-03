@@ -5,7 +5,6 @@ import CountryList from "../containers/country-list";
 import FlagDetail from "../containers/flag-detail";
 
 export default class App extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {};

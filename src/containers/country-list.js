@@ -14,7 +14,6 @@ class ContinentList extends Component {
         if(!this.props.activeContinent.continent  || this.props.activeContinent == null) {
             return null;
         }
-        console.log("activeContinent--"+JSON.stringify(this.props.activeContinent));
         const data = this.props.continents.filter( (arrVal, index) => {
             return this.props.activeContinent.continent === arrVal.continent;
         });
@@ -35,13 +34,11 @@ class ContinentList extends Component {
     }
 
     onChangeConuntry(country, checked)  {
-        console.log("onChangeConuntry country"+country+ "checked"+checked);
         this.props.onSelectConuntry({country:country,checked:checked});
     }
 }
 
 export const mapStateToProps = state => {
-    console.log("mapStateToProps -"+ JSON.stringify(state));
     return {
         continents: state.continents,
         countries: state.countries,

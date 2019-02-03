@@ -18,15 +18,6 @@ export default class Autosuggest extends Component {
 
     onAutoInputUpdate(e) {
         this.setState({autoIn: e.target.value, showMenu: true});
-        // if(this.props.data.indexOf(e.target.value) !== -1) {
-        //     if(this.props.type == "checkbox") {
-        //         this.setState({autoIn: ""});
-        //     } else {
-        //         this.setState({autoIn: "", showMenu: false});
-        //     }            
-        //     this.props.onChange(e.target.value);
-        // }
-
     }
 
     handleClick = e => {

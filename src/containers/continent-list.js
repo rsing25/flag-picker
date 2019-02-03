@@ -39,7 +39,6 @@ class ContinentList extends Component {
         }
     }
     onChangeContinent(continent)  {
-        console.log("onChangeContinent"+continent);
         if(continent !== this.props.activeContinent.continent) {
             this.props.onClearConuntry({});
             this.props.onSelectContinent({continent:continent});    
@@ -48,7 +47,6 @@ class ContinentList extends Component {
 }
 
 export const mapStateToProps = state => {
-    console.log("mapStateToProps"+ JSON.stringify(state));
     return {
         continents: state.continents,
         activeContinent: state.activeContinent

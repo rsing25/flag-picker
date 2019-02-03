@@ -51,7 +51,6 @@ class FlagDetail extends Component {
 }
 
 export const mapStateToProps = state => {
-    console.log("mapStateToProps -"+ JSON.stringify(state));
     return {
         continents: state.continents,
         countries: state.countries,
@@ -61,9 +60,9 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-    onClearConuntry: options => {
-        dispatch(clearConuntry(options));
-    }
+        onClearConuntry: options => {
+            dispatch(clearConuntry(options));
+        }
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(FlagDetail);
