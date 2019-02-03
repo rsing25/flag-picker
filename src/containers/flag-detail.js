@@ -25,7 +25,7 @@ class FlagDetail extends Component {
 
     renderCountries(countries) {
         return countries.map((country)=> {
-            return (<li>{country.conuntry}</li>);
+            return (<li>{country}</li>);
         });
     }
 

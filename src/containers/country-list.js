@@ -30,9 +30,9 @@ class ContinentList extends Component {
         );
     }
 
-    onChangeConuntry(conuntry)  {
-        console.log("onChangeConuntry"+conuntry);
-        this.props.onSelectConuntry({conuntry:conuntry});
+    onChangeConuntry(country, checked)  {
+        console.log("onChangeConuntry country"+country+ "checked"+checked);
+        this.props.onSelectConuntry({country:country,checked:checked});
     }
 }
 
