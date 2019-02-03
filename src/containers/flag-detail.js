@@ -11,21 +11,38 @@ class FlagDetail extends Component {
     }
 
     render() {
-        if(!this.props.countries  || this.props.countries == null) {
+        if(!this.props.activeContinent.continent  || this.props.activeContinent == null) {
             return null;
-        }        
+        }
+        debugger;
+        const data = this.props.continents.filter( (arrVal, index) => {
+            return this.props.activeContinent.continent === arrVal.continent;
+        });
+
+        const dataIn = data[0].countries.filter((country)=>{
+            return this.props.countries.indexOf(country.name) !== -1;
+        });
+
+        const flagIn = dataIn.map((country)=>{
+            return country.flag;
+        });
+        
         return(
             <div>
-                <ul>
-                    {this.renderCountries(this.props.countries)}
-                </ul>
+                <div className="text-1">Selected flags:</div>
+                <div className="text-2">flags</div>
+                <div>
+                    <ul>
+                        {this.renderFlags(flagIn)}
+                    </ul>
+                </div>
             </div>
         )
     }
 
-    renderCountries(countries) {
-        return countries.map((country)=> {
-            return (<li>{country}</li>);
+    renderFlags(flags) {
+        return flags.map((flag)=> {
+            return (<span>{flag}</span>);
         });
     }
 
