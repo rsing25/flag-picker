@@ -16,6 +16,8 @@ class ContinentList extends Component {
         });
         return (
             <div>
+                <div className="text-1">Step 1</div>
+                <div className="text-2">Select a continent</div>
                 <div><AutoSuggest type="normal" data= {data} onChange = {this.onChangeContinent.bind(this)}/></div>
                 <div>
                     {this.renderSelectedContinent()}
@@ -30,8 +32,8 @@ class ContinentList extends Component {
         } else {
             return (
                 <div>
-                    <div>You selected</div>
-                    <div>{this.props.activeContinent.continent}</div>
+                    <div className="text-2">You selected</div>
+                    <div className="text-1">{this.props.activeContinent.continent}</div>
                 </div>
             )
         }
