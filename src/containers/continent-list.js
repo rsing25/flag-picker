@@ -40,9 +40,10 @@ class ContinentList extends Component {
     }
     onChangeContinent(continent)  {
         console.log("onChangeContinent"+continent);
-        this.props.onClearConuntry({});
-        this.props.onSelectContinent({continent:continent});
-        
+        if(continent !== this.props.activeContinent.continent) {
+            this.props.onClearConuntry({});
+            this.props.onSelectContinent({continent:continent});    
+        }        
     }
 }
 
